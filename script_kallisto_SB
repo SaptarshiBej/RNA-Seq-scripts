@@ -1,0 +1,30 @@
+
+#Creating reference
+#find the reference files in 'ftp://ftp.ensembl.org/pub/release-92/fasta/homo_sapiens/' download files cat Homo_sapiens.GRCh38.cdna.all.fa.gz and Homo_sapiens.GRCh38.ncrna.fa.gz 
+#combine the downloaded files using the following command (open the terminal in the directory where the downloaded files are saved)
+
+cat Homo_sapiens.GRCh38.cdna.all.fa.gz Homo_sapiens.GRCh38.ncrna.fa.gz > Homo_sapiens.GRCh38.rna.fa.gz
+
+#Indexing reference
+#general command template (path/to/kallosto index-i /destination/path /source/path)
+
+
+./kallisto index -i index index_GRCh38_cdna_ncRNA /users/sbi00/mw581/Documents/Salmon-0.8.2_linux_x86_64/index/Homo_sapiens.GRCh38.87.cdna.ncrna.fa
+
+./CS/home/Folder_Saptarshi/Academic/GB-X/gb-xmap/apps/kallisto_linux-v0.43.1/kallisto_linux-v0.43.1/kallisto index -i indexHS.GRCh38 Downloads/Homo_sapiens.GRCh38.rna.fa/Homo_sapiens.GRCh38.rna.fa
+
+#Quantification (individual)
+
+./kallisto quant -i index_hg19_mrna_e -t 24 -o /users/sbi00/mw581/Documents/kallisto_linux-v0.43.1/hg19_mrna/output --single -l 100 -s 20 /media/sdc/mw581/Projects/Steinhoff/Raw_data/lane2_barcode_RTC099.fastq
+
+./kallisto quant -i index_GRCh38_cdna_ncRNA -t 24 -o /users/sbi00/mw581/Documents/kallisto_linux-v0.43.1/hg19_mrna/output_RTC099 --single -l 100 -s 20 /media/sdc/mw581/Projects/Steinhoff/Raw_data/lane2_barcode_RTC099.fastq
+
+./kallisto quant -i index_GRCh38_cdna_ncRNA -t 24 -o /users/sbi00/mw581/Documents/kallisto_linux-v0.43.1/hg19_mrna/output_a_de21 --single -l 51 -s 20 /media/sdc/mw581/Projects/GB_XMAP/lexogene_data1710/a/DE21NGSUKBR101548_1.fq.gz
+
+./kallisto quant -i index_GRCh38_cdna_ncRNA -t 24 -o /users/sbi00/mw581/Documents/kallisto_linux-v0.43.1/hg19_mrna/output_globinex_de07 --single -l 51 -s 20 /media/sdc/mw581/Projects/GB_XMAP/scibio_data1707/DE07NGSUKBR100636_1.fq.gz
+
+./kallisto quant -i index_GRCh38_cdna_ncRNA -t 24 -o /users/sbi00/mw581/Documents/kallisto_linux-v0.43.1/hg19_mrna/output_RTC099 --single -l 100 -s 20 /media/sdc/mw581/Projects/Steinhoff/Raw_data/lane2_barcode_RTC099.fastq-
+
+./CS/home/Folder_Saptarshi/Academic/GB-X/gb-xmap/apps/kallisto_linux-v0.43.1/kallisto_linux-v0.43.1/kallisto quant -i indexHS.GRCh38 -t 4 -o quantHS.GRCh38DE52 --single -l 100 -s 20 DE52NGSUKBR200706_1.fq.gz
+
+
